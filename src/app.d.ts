@@ -6,7 +6,7 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			files: FileItem[];
+			files: Array<{ name: string; path: string }>;
 		}
 		// interface PageData {}
 		// interface Platform {}
