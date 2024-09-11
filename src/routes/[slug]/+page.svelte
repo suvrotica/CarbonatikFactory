@@ -10,14 +10,9 @@
       console.log('Current path:', path);
       
       try {
-        let module;
-        if (path === '/') {
-          module = await import('../routes/Documents/index.md');
-        } else {
-          // Remove leading slash and replace remaining slashes with hyphens
-          const cleanPath = path.slice(1).replace(/\//g, '-');
-          module = await import(`../routes/Documents/${cleanPath}.md`);
-        }
+        // Remove leading slash and replace remaining slashes with hyphens
+        const cleanPath = path.slice(1).replace(/\//g, '-');
+        const module = await import(`../../routes/Documents/${cleanPath}.md`);
         MarkdownComponent = module.default;
       } catch (error) {
         console.error('Failed to load Markdown file:', error);
